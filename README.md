@@ -38,7 +38,7 @@ server and once against a production build.
 | failure | what the user sees |
 | --- | --- |
 | constructor | no tiles at all. The whole grid is missing, healthy tiles included. |
-| ngOnInit | all four tiles are there but every binding is empty, before and after the broken tile. The visitor counter never starts. One click on "Add order" fills in the whole page, the broken tile included. |
+| ngOnInit | all four tiles are there but every binding is empty, before and after the broken tile. The visitor counter never starts. A click on "Add order" or on the broken tile's own Refresh button fills in the whole page, the broken tile included. |
 | template | the broken tile is half drawn (heading and button, no data). The rest keeps updating. |
 | resource | the broken tile keeps showing the list it rendered while loading. Nothing on screen says it failed. |
 | click, async | nothing visible. The ErrorHandler logs `ERROR …` to the console. |
@@ -79,7 +79,7 @@ the console output; it expects `npm start -- --port 4248` to be running.
 `npm run check` ends with:
 
 ```
-  40 passed (7.4s)
+  42 passed (8.1s)
 ```
 
 ## Versions

@@ -31,7 +31,7 @@ try {
       console.log(`\n=== layout=${layout} fail=${fail}`);
       console.log('tiles:', JSON.stringify(tiles.map((t) => t.replace(/\n+/g, ' | '))));
       if (!tiles.length) console.log('app-root text:', JSON.stringify(body.replace(/\n+/g, ' | ')));
-      console.log(`visitors ${before} -> ${after}; orders ${ordersBefore} -> ${ordersAfter} (after Add order)`);
+      console.log(`visitors ${before} -> ${after}; orders ${ordersBefore} -> ${ordersAfter}${process.argv[4] === 'noclick' ? ' (no click)' : ' (after Add order)'}`);
       console.log('errorLog:', JSON.stringify(log));
       console.log('console:\n  ' + consoleLines.join('\n  '));
       await page.close();

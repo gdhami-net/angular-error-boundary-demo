@@ -49,6 +49,15 @@ test.describe('no boundary', () => {
     await expect.poll(async () => Number(await visitors(page).textContent())).toBeGreaterThan(0);
   });
 
+  test('after an ngOnInit error, the broken tile\'s own Refresh button also fills the page in', async ({ page }) => {
+    await open(page, 'fail=init&layout=plain');
+    await page.waitForTimeout(1000);
+    await expect(page.locator('[data-test=orders]')).toHaveText('');
+    await page.click('[data-test=refresh]');
+    await expect(page.locator('[data-test=orders]')).toHaveText('128');
+    await expect(page.locator('[data-test=top-product]')).toHaveText('Desk lamp');
+  });
+
   test('a template error leaves the broken tile half drawn; the rest keeps working', async ({ page }) => {
     const errors = await open(page, 'fail=template&layout=plain');
     await expect(products(page)).toContainText('Top products');
