@@ -31,7 +31,7 @@ test.describe('no boundary', () => {
     expect(errors).toContain('ERROR Error: Top products: constructor failed');
   });
 
-  test('an ngOnInit error leaves every tile blank until something else triggers change detection', async ({ page }) => {
+  test('an ngOnInit error leaves three of the four tiles blank until something else triggers change detection', async ({ page }) => {
     const errors = await open(page, 'fail=init&layout=plain');
     await page.waitForTimeout(1500);
     // The tiles exist, but none of their bindings were written, before or after the broken one.
