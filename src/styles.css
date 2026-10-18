@@ -1,0 +1,6 @@
+.grid { display: grid; grid-template-columns: repeat(2, minmax(220px, 1fr)); gap: 16px; max-width: 720px; }
+.tile { background: #f1f5f9; padding: 16px 20px; min-height: 140px; }
+.tile h2 { margin: 0 0 8px; font-size: 15px; color: #475569; }
+.big { font-size: 32px; margin: 0 0 8px; }
+.fallback p { margin: 0 0 12px; }
+.fallback button { background: #0284c7; color: white; border: 0; padding: 6px 14px; }
